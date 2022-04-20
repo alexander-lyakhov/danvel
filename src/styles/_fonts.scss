@@ -1,0 +1,23 @@
+﻿@font-face {
+  font-family: 'FuturaFuturisC';
+  src: url('~@/assets/fonts/FuturaFuturisC.eot');
+  src: url('~@/assets/fonts/FuturaFuturisC.eot') format('embedded-opentype'),
+       url('~@/assets/fonts/FuturaFuturisC.woff') format('woff'),
+       url('~@/assets/fonts/FuturaFuturisC.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FuturaFuturisC';
+  src: url('~@/assets/fonts/FuturaFuturisC-Bold.eot');
+  src: url('~@/assets/fonts/FuturaFuturisC-Bold.eot') format('embedded-opentype'),
+       url('~@/assets/fonts/FuturaFuturisC-Bold.woff') format('woff'),
+       url('~@/assets/fonts/FuturaFuturisC-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+body{
+  font-family: "FuturaFuturisC";
+}

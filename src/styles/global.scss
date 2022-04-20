@@ -1,19 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Exo+2');
-
-$font-primary: 'Exo 2';
-
 html, body, #app {
   min-height: 100vh;
 }
 
 body {
-  font: 16px verdana;
   color: e0e0e0;
   background: #fff;
 }
 
 #app {
-	display: flex;
+  display: flex;
 }
 
 p {
@@ -40,4 +35,9 @@ a {
 
 .invisible {
   display: none!important;
+}
+
+h1 {
+  font-webkit: 500;
+  font-size: 40px;
 }

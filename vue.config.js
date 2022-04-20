@@ -5,15 +5,13 @@
     config.resolve.extensions = ['*', '.js', '.vue', '.json', '.scss'];
   },
 
-  /*
   css: {
     loaderOptions: {
       sass: {
-        prependData: '@import "@/styles/variables.scss";',
+        prependData: '@import "@/styles/index.scss";',
       },
     },
   },
-  */
 
   chainWebpack: (config) => {
     // Only convert .svg files that are imported by these files as Vue component

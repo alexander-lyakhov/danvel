@@ -1,26 +1,54 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-
+/*
+import Home from "../views/Bills.vue";
+import Home from "../views/Offers.vue";
+import Home from "../views/Structure.vue";
+import Home from "../views/Finance.vue";
+import Home from "../views/Reports.vue";
+import Home from "../views/Profile.vue";
+*/
 const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home,
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
-  },
+	{
+		path: "/",
+		name: "home",
+		component: Home,
+	},
+	{
+		path: "/bill",
+		name: "bill",
+		component: () => import("../views/Bill.vue"),
+	},
+	{
+		path: "/offers",
+		name: "offers",
+		component: () => import("../views/Offers.vue"),
+	},
+	{
+		path: "/structure",
+		name: "structure",
+		component: () => import("../views/Structure.vue"),
+	},
+	{
+		path: "/finance",
+		name: "finance",
+		component: () => import("../views/Finance.vue"),
+	},
+	{
+		path: "/reports",
+		name: "reposr",
+		component: () => import("../views/Reports.vue"),
+	},
+	{
+		path: "/profile",
+		name: "profile",
+		component: () => import("../views/Profile.vue"),
+	},
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes,
+	history: createWebHistory(process.env.BASE_URL),
+	routes,
 });
 
 export default router;
