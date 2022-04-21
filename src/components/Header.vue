@@ -5,14 +5,15 @@
 <script>
 
 export default {
-  name: 'PageHeader',
+  name: 'Header',
 }
 </script>
 
 <style lang="scss" scoped>
 
 header {
-  background: #008080;
+  //background: #008080;
+  border-bottom: 1px solid #808080;
   width: 100%;
   height: 96px;
 }
