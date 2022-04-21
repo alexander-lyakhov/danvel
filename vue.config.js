@@ -2,7 +2,7 @@
   productionSourceMap: false,
 
   configureWebpack: (config) => {
-    config.resolve.extensions = ['*', '.js', '.vue', '.json', '.scss'];
+    config.resolve.extensions = ["*", ".js", ".vue", ".json", ".scss"];
   },
 
   css: {
@@ -18,27 +18,27 @@
     const FILE_RE = /\.(vue|js|ts|svg)$/;
 
     // Use vue-cli's default rule for svg in non .vue .js .ts files
-    config.module.rule('svg').issuer(file => !FILE_RE.test(file));
+    config.module.rule("svg").issuer((file) => !FILE_RE.test(file));
 
     // Use our loader to handle svg imported by other files
     config.module
-      .rule('svg-component')
+      .rule("svg-component")
       .test(/\.svg$/)
-      .issuer(file => FILE_RE.test(file))
-      .use('vue')
-      .loader('vue-loader')
+      .issuer((file) => FILE_RE.test(file))
+      .use("vue")
+      .loader("vue-loader")
       .end()
-      .use('svg-to-vue-component')
-      .loader('svg-to-vue-component/loader')
-      .end()
-      //.rule('pug')
-      //.test(/\.pug$/)
-      //.use('pug-plain-loader')
-      //.loader('pug-plain-loader')
-      //.end()
+      .use("svg-to-vue-component")
+      .loader("svg-to-vue-component/loader")
+      .end();
+    //.rule('pug')
+    //.test(/\.pug$/)
+    //.use('pug-plain-loader')
+    //.loader('pug-plain-loader')
+    //.end()
   },
 
-  publicPath: process.env.NODE_ENV === 'production' ? '/danvel/' : '/',
+  publicPath: process.env.NODE_ENV === "production" ? "/danvel/" : "/",
 
   lintOnSave: false,
 };

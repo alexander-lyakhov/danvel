@@ -5,10 +5,8 @@
 </template>
 
 <script>
-
 export default {
   name: "Offers",
-  components: {
-  },
+  components: {},
 };
 </script>

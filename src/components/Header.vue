@@ -3,14 +3,12 @@
 </template>
 
 <script>
-
 export default {
-  name: 'Header',
-}
+  name: "Header",
+};
 </script>
 
 <style lang="scss" scoped>
-
 header {
   //background: #008080;
   border-bottom: 1px solid #808080;

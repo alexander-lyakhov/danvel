@@ -11,7 +11,11 @@
             Главная
           </router-link>
         </li>
-        <li class="nav-menu__item" :class="{'is-expanded': isMyAccountExpanded}" @click="toggleExpanded">
+        <li
+          class="nav-menu__item"
+          :class="{ 'is-expanded': isMyAccountExpanded }"
+          @click="toggleExpanded"
+        >
           <router-link class="router-link" to="/account">
             <icon-wallet />
             Мой счет
@@ -70,20 +74,19 @@
 </template>
 
 <script>
+import logo from "@/assets/logo.svg";
+import iconDashboard from "@/assets/icons/icon-dashboard.svg";
+import iconWallet from "@/assets/icons/icon-wallet.svg";
+import iconServices from "@/assets/icons/icon-services.svg";
+import iconStructure from "@/assets/icons/icon-structure.svg";
+import iconDollar from "@/assets/icons/icon-dollar.svg";
+import iconChart from "@/assets/icons/icon-chart.svg";
+import iconProfile from "@/assets/icons/icon-profile.svg";
 
-import logo from '@/assets/logo.svg'
-import iconDashboard from '@/assets/icons/icon-dashboard.svg'
-import iconWallet from '@/assets/icons/icon-wallet.svg'
-import iconServices from '@/assets/icons/icon-services.svg'
-import iconStructure from '@/assets/icons/icon-structure.svg'
-import iconDollar from '@/assets/icons/icon-dollar.svg'
-import iconChart from '@/assets/icons/icon-chart.svg'
-import iconProfile from '@/assets/icons/icon-profile.svg';
-
-import { reactive, ref, toRefs } from 'vue'
+import { reactive, toRefs } from "vue";
 
 export default {
-  name: 'Sidebar',
+  name: "Sidebar",
 
   components: {
     logo,
@@ -93,31 +96,30 @@ export default {
     iconStructure,
     iconDollar,
     iconChart,
-    iconProfile
+    iconProfile,
   },
 
   setup() {
     const state = reactive({
-      isMyAccountExpanded: false
-    })
+      isMyAccountExpanded: false,
+    });
 
     return {
       ...toRefs(state),
 
       onMenuClick() {
-        state.isMyAccountExpanded = false
+        state.isMyAccountExpanded = false;
       },
 
       toggleExpanded() {
-        state.isMyAccountExpanded = !state.isMyAccountExpanded
-      }
-    }
-  }
-}
+        state.isMyAccountExpanded = !state.isMyAccountExpanded;
+      },
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-
 #sidebar {
   background: $black;
   flex: 0 0 320px;
@@ -154,14 +156,15 @@ export default {
           fill: $white;
         }
 
-        &.is-expanded, &-active {
+        &.is-expanded,
+        &-active {
           color: $fresh-green;
           svg {
             fill: $fresh-green;
           }
 
           &:before {
-            content: '';
+            content: "";
             display: block;
             background: $fresh-green;
             width: 4px;
@@ -193,7 +196,7 @@ export default {
           }
 
           &:before {
-            content: '';
+            content: "";
             background: $white;
             width: 4px;
             height: 4px;
@@ -207,6 +210,5 @@ export default {
       }
     }
   }
-
 }
 </style>

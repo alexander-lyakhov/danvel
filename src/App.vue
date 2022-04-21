@@ -9,19 +9,17 @@
 </template>
 
 <script>
-
-import header from '@/components/Header.vue'
-import sidebar from '@/components/Sidebar.vue'
+import header from "@/components/Header.vue";
+import sidebar from "@/components/Sidebar.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     pageHeader: header,
-    sidebar
+    sidebar,
   },
-}
+};
 </script>
-
 
 <style lang="scss" scoped>
 .page {

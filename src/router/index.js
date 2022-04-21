@@ -1,15 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-/*
-import Home from "../views/Bills.vue";
-import Home from "../views/Offers.vue";
-import Home from "../views/Structure.vue";
-import Home from "../views/Finance.vue";
-import Home from "../views/Reports.vue";
-import Home from "../views/Profile.vue";
-*/
-
-import MyAccount from "../views/MyAccount.vue";
 
 const routes = [
   {
@@ -37,7 +27,7 @@ const routes = [
         name: "new-account",
         component: () => import("../views/NewAccount.vue"),
       },
-    ]
+    ],
   },
   {
     path: "/offers",

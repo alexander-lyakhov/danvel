@@ -5,10 +5,8 @@
 </template>
 
 <script>
-
 export default {
   name: "Structure",
-  components: {
-  },
+  components: {},
 };
 </script>
