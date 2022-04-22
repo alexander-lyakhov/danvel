@@ -1,5 +1,5 @@
 ﻿<template>
-  <aside id="sidebar">
+  <aside id="sidebar" :class="{'is-visible': isVisible}">
     <div class="logo">
       <logo />
     </div>
@@ -99,10 +99,19 @@ export default {
     iconProfile,
   },
 
-  setup() {
+  props: {
+    isVisible: {
+      type: Boolean,
+      default: true
+    }
+  },
+
+  setup(props) {
     const state = reactive({
       isMyAccountExpanded: false,
     });
+
+    console.log('props', props)
 
     return {
       ...toRefs(state),
@@ -123,6 +132,12 @@ export default {
 #sidebar {
   background: $black;
   flex: 0 0 320px;
+
+  transition: margin .2s;
+
+  &:not(.is-visible) {
+    margin-left: -320px;
+  }
 
   .logo {
     @extend .flex-center-center;
