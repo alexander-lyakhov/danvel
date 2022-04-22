@@ -1,7 +1,6 @@
-<template>
-  <div>
-    <h1>Operations</h1>
-  </div>
+<template lang="pug">
+div
+  h1 Список финансовых операций
 </template>
 
 <script>

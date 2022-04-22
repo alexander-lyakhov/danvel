@@ -1,7 +1,6 @@
-<template>
-  <div>
-    <h1>Reports</h1>
-  </div>
+<template lang="pug">
+div
+  h1 Reports
 </template>
 
 <script>

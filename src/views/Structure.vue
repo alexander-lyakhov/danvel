@@ -1,7 +1,6 @@
-<template>
-  <div>
-    <h1>Structure</h1>
-  </div>
+<template lang="pug">
+div
+  h1 Structure
 </template>
 
 <script>

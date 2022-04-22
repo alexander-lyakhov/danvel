@@ -1,7 +1,6 @@
-<template>
-  <div>
-    <h1>New Account</h1>
-  </div>
+<template lang="pug">
+div
+  h1 Открыть счет
 </template>
 
 <script>

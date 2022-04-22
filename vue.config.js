@@ -30,12 +30,12 @@
       .end()
       .use("svg-to-vue-component")
       .loader("svg-to-vue-component/loader")
-      .end();
-    //.rule('pug')
-    //.test(/\.pug$/)
-    //.use('pug-plain-loader')
-    //.loader('pug-plain-loader')
-    //.end()
+      .end()
+      .rule('pug')
+      .test(/\.pug$/)
+      .use('pug-plain-loader')
+      .loader('pug-plain-loader')
+      .end()
   },
 
   publicPath: process.env.NODE_ENV === "production" ? "/danvel/" : "/",

@@ -1,7 +1,6 @@
-<template>
-  <div>
-    <h1>My Account</h1>
-  </div>
+<template lang="pug">
+div
+  h1 Мой счет
 </template>
 
 <script>
