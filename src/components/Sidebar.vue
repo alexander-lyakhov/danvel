@@ -1,77 +1,47 @@
-﻿<template>
-  <aside id="sidebar" :class="{'is-visible': isVisible}">
-    <div class="logo">
-      <logo />
-    </div>
-    <nav class="nav">
-      <menu class="nav-menu" @click.stop="clearActive">
-        <li class="nav-menu__item">
-          <router-link class="router-link" to="/">
-            <icon-dashboard />
-            Главная
-          </router-link>
-        </li>
-        <li
-          class="nav-menu__item"
-          :class="{ 'is-expanded': isMyAccountExpanded }"
-          @click="toggleExpanded"
-        >
-          <router-link class="router-link" to="/account">
-            <icon-wallet />
-            Мой счет
-          </router-link>
-          <ul class="nav-menu__item--submenu">
-            <li class="nav-menu__item--submenu-item" @click.stop>
-              <router-link class="router-link" to="my-account">
-                Мой счет
-              </router-link>
-            </li>
-            <li class="nav-menu__item--submenu-item" @click.stop>
-              <router-link class="router-link" to="operations">
-                Список финансовых операций
-              </router-link>
-            </li>
-            <li class="nav-menu__item--submenu-item" @click.stop>
-              <router-link class="router-link" to="new-account">
-                Открыть счет
-              </router-link>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-menu__item">
-          <router-link class="router-link" to="/offers">
-            <icon-services />
-            Предложения
-          </router-link>
-        </li>
-        <li class="nav-menu__item">
-          <router-link class="router-link" to="/structure">
-            <icon-structure />
-            Структура
-          </router-link>
-        </li>
-        <li class="nav-menu__item">
-          <router-link class="router-link" to="/finance">
-            <icon-dollar />
-            Мои финансы
-          </router-link>
-        </li>
-        <li class="nav-menu__item">
-          <router-link class="router-link" to="/reports">
-            <icon-chart />
-            Отчеты
-          </router-link>
-        </li>
-        <li class="nav-menu__item">
-          <router-link class="router-link" to="/profile">
-            <icon-profile />
-            Профиль
-          </router-link>
-        </li>
-      </menu>
-    </nav>
-  </aside>
-</template>
+﻿<template lang="pug">
+aside#sidebar(:class="{'is-visible': isVisible}")
+  .logo
+    logo
+  nav.nav
+    menu.nav-menu(@click.stop="clearActive")
+      li(class="nav-menu__item")
+        router-link.router-link(to="/")
+          icon-dashboard
+          span Главная
+      li(class="nav-menu__item", :class="{ 'is-expanded': isMyAccountExpanded }", @click="toggleExpanded")
+        router-link.router-link(to="/account")
+          icon-wallet
+          span Мой счет
+        ul(class="nav-menu__item--submenu")
+          li(class="nav-menu__item--submenu-item", @click.stop)
+            router-link.router-link(to="my-account")
+              span Мой счет
+          li(class="nav-menu__item--submenu-item", @click.stop)
+            router-link.router-link(to="operations")
+              span Список финансовых операций
+          li(class="nav-menu__item--submenu-item", @click.stop)
+            router-link.router-link(to="new-account")
+              span Открыть счет
+      li(class="nav-menu__item")
+        router-link.router-link(to="/offers")
+          icon-services
+          span Предложения
+      li(class="nav-menu__item")
+        router-link.router-link(to="/structure")
+          icon-structure
+          span Структура
+      li(class="nav-menu__item")
+        router-link.router-link(to="/finance")
+          icon-dollar
+          span Мои финансы
+      li(class="nav-menu__item")
+        router-link.router-link(to="/reports")
+          icon-chart
+          span Отчеты
+      li(class="nav-menu__item")
+        router-link.router-link(to="/profile")
+          icon-profile
+          span Профиль</template>
 
 <script>
 import logo from "@/assets/logo.svg";
