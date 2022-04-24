@@ -1,16 +1,15 @@
-<template>
-  <sidebar :isVisible="isSidebarVisible" />
-  <div class="page">
-    <page-header @triggerSidebar="triggerSidebar"/>
-    <main>
-      <router-view />
-    </main>
-  </div>
+<template lang="pug">
+sidebar(ref="sidebar", :offset="sidebarOffset", @triggerSidebar="toggleSidebar")
+.page
+  page-header(@triggerSidebar="toggleSidebar")
+  main
+    router-vue
 </template>
 
 <script>
 import header from "@/components/Header.vue";
 import sidebar from "@/components/Sidebar.vue";
+import {reactive, ref, toRefs} from 'vue'
 
 export default {
   name: "app",
@@ -20,18 +19,24 @@ export default {
     sidebar,
   },
 
-  data() {
-    return {
-      isSidebarVisible: true
-    }
-  },
+  setup() {
+    const state = reactive({
+      sidebarOffset: '0px'
+    })
 
-  methods: {
-    triggerSidebar() {
-      this.isSidebarVisible = !this.isSidebarVisible
+    const sidebar = ref(null)
+
+    return {
+      ...toRefs(state),
+      sidebar,
+
+      toggleSidebar() {
+        const sidebarEl = sidebar.value.$el
+        state.sidebarOffset = !sidebarEl.offsetLeft ? -sidebarEl.offsetWidth + 'px' : 0 + 'px'
+      }
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

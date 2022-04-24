@@ -1,7 +1,10 @@
 ﻿<template lang="pug">
-aside#sidebar(:class="{'is-visible': isVisible}")
+aside.sidebar(ref="sidebar")
   .logo
     logo
+  a.btn-close(href="#", @click.stop="close")
+    icon-close
+    span Закрыть
   nav.nav
     menu.nav-menu(@click.stop="clearActive")
       li(class="nav-menu__item")
@@ -41,10 +44,12 @@ aside#sidebar(:class="{'is-visible': isVisible}")
       li(class="nav-menu__item")
         router-link.router-link(to="/profile")
           icon-profile
-          span Профиль</template>
+          span Профиль
+</template>
 
 <script>
 import logo from "@/assets/logo.svg";
+import iconClose from "@/assets/icons/icon-close.svg";
 import iconDashboard from "@/assets/icons/icon-dashboard.svg";
 import iconWallet from "@/assets/icons/icon-wallet.svg";
 import iconServices from "@/assets/icons/icon-services.svg";
@@ -53,13 +58,14 @@ import iconDollar from "@/assets/icons/icon-dollar.svg";
 import iconChart from "@/assets/icons/icon-chart.svg";
 import iconProfile from "@/assets/icons/icon-profile.svg";
 
-import { reactive, toRefs } from "vue";
+import { reactive, ref, toRefs, watch } from "vue";
 
 export default {
   name: "Sidebar",
 
   components: {
     logo,
+    iconClose,
     iconDashboard,
     iconWallet,
     iconServices,
@@ -70,58 +76,128 @@ export default {
   },
 
   props: {
-    isVisible: {
-      type: Boolean,
-      default: true
-    }
+    offset: {
+      type: String,
+      default: '0px'
+    },
   },
 
-  setup(props) {
+  setup(props, ctx) {
     const state = reactive({
       isMyAccountExpanded: false,
+      offset: ''
     });
 
-    console.log('props', props)
+    watch(() => props.offset, (val) => {
+      state.offset = val
+    })
 
     return {
       ...toRefs(state),
 
-      onMenuClick() {
-        state.isMyAccountExpanded = false;
-      },
-
       toggleExpanded() {
         state.isMyAccountExpanded = !state.isMyAccountExpanded;
       },
+
+      close() {
+        ctx.emit('triggerSidebar')
+      },
+
     };
   },
 };
 </script>
 
 <style lang="scss" scoped>
-#sidebar {
+.sidebar {
   background: $black;
-  flex: 0 0 320px;
-
+  flex: 0 0 330px;
   transition: margin .2s;
-
-  &:not(.is-visible) {
-    margin-left: -320px;
-  }
+  margin-left: v-bind(offset);
 
   .logo {
     @extend .flex-center-center;
     background: $fresh-green;
     height: 96px;
+
+    svg {
+      width: 234px;
+      height: 52px;
+    }
+  }
+
+  .btn-close {
+    font-weight: bold;
+    font-size: 16px;
+    color: $white;
+    margin: 24px 0 0 24px;
+    display: none;
+    align-items: center;
+
+    svg {
+      fill: $white;
+      width: 24px;
+      height: 24px;
+    }
+
+    span {
+      margin: 0 6px;
+    }
+  }
+
+  nav {
+    margin-top: 64px;
+  }
+
+  @include max-1440 {
+    flex: 0 0 256px;
+
+    .logo {
+      height: 80px;
+      svg {
+        width: 192px;
+        height: 44px;
+      }
+    }
+
+    nav {
+      margin-top: 48px;
+    }
+  }
+
+  @include max-1280 {
+    flex: 0 0 240px;
+
+    .logo svg {
+      width: 180px;
+      height: 44px;
+    }
+  }
+
+  @include max-768 {
+    flex: 0 0 252px;
+
+    .logo {
+      display: none;
+    }
+
+    .btn-close {
+      display: flex;
+    }
+
+    nav {
+      margin-top: 64px;
+    }
+  }
+
+  @include max-320 {
+    flex: 0 0 228px;
   }
 
   .nav-menu {
-    margin-top: 64px;
-
     &__item {
       $this: &;
 
-      font-size: 20px;
       font-weight: bold;
       color: $white;
 
@@ -131,14 +207,17 @@ export default {
 
       & > .router-link {
         @extend .flex-y-center;
+        font-size: 20px;
         width: 100%;
         height: 96px;
         position: relative;
         cursor: pointer;
 
         svg {
-          margin: 0 32px 0 40px;
           fill: $white;
+          width: 40px;
+          height: 40px;
+          margin: 0 32px 0 40px;
         }
 
         &.is-expanded,
@@ -155,6 +234,16 @@ export default {
             width: 4px;
             height: 100%;
             position: absolute;
+          }
+        }
+
+        @include max-1440 {
+          font-size: 16px;
+          height: 80px;
+          svg {
+            width: 24px;
+            height: 24px;
+            margin: 0 16px 0 32px;
           }
         }
       }

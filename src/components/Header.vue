@@ -18,7 +18,6 @@ export default {
     return {
       triggerSidebar() {
         ctx.emit('triggerSidebar')
-
       }
     }
   }
