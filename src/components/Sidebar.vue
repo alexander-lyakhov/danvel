@@ -88,15 +88,15 @@ export default {
       offset: ''
     });
 
-    watch(() => props.offset, (val) => {
-      state.offset = val
-    })
-
     return {
       ...toRefs(state),
 
       toggleExpanded() {
         state.isMyAccountExpanded = !state.isMyAccountExpanded;
+      },
+
+      getOffset() {
+        return props.offset
       },
 
       close() {
@@ -113,7 +113,7 @@ export default {
   background: $black;
   flex: 0 0 330px;
   transition: margin .2s;
-  margin-left: v-bind(offset);
+  margin-left: v-bind(getOffset());
 
   .logo {
     @extend .flex-center-center;
@@ -176,6 +176,7 @@ export default {
 
   @include max-768 {
     flex: 0 0 252px;
+    margin-left: v-bind(getOffset());
 
     .logo {
       display: none;
@@ -192,6 +193,7 @@ export default {
 
   @include max-320 {
     flex: 0 0 228px;
+    margin-left: v-bind(getOffset());
   }
 
   .nav-menu {

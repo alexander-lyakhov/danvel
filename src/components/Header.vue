@@ -27,19 +27,42 @@ export default {
 <style lang="scss" scoped>
 
 header {
-  //background: #008080;
+  background: #e8e8e8;
   border-bottom: 1px solid #808080;
   display: flex;
   align-items: center;
   height: 96px;
   padding: 0 48px;
 
-  .btn {
-    &-sidebar-trigger {
-      svg {
-        fill: $black;
+  @include max-1440 {
+    height: 80px;
+    padding: 0 32px;
+  }
+
+  @include max-768 {
+    height: 64px;
+    padding: 0 24px;
+  }
+
+  @include max-320 {
+    height: 48px;
+    padding: 0 16px;
+  }
+
+  .btn-sidebar-trigger {
+    svg {
+      fill: $black;
+      width: 32px;
+      height: 32px;
+
+      @include max-1440 {
+        width: 24px;
+        height: 24px
+      }
+
+      @include max-768 {
         width: 20px;
-        height: 20px;
+        height: 20px
       }
     }
   }
