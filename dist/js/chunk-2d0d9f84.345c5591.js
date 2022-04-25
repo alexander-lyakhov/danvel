@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0d9f84"],{"6a36":function(n,e,c){"use strict";c.r(e);var t=c("7a23"),o=Object(t["f"])("h1",null,"Открыть счет",-1),u=[o];function a(n,e,c,o,a,d){return Object(t["s"])(),Object(t["e"])("div",null,u)}var d={name:"NewAccount",components:{}},r=c("d959"),s=c.n(r);const w=s()(d,[["render",a]]);e["default"]=w}}]);

@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d2378c4"],{fc1b:function(n,c,t){"use strict";t.r(c);var e=t("7a23"),o=Object(e["f"])("h1",null,"My Account",-1),u=[o];function r(n,c,t,o,r,a){return Object(e["t"])(),Object(e["e"])("div",null,u)}var a={name:"MyAccount",components:{}},d=t("d959"),s=t.n(d);const b=s()(a,[["render",r]]);c["default"]=b}}]);
