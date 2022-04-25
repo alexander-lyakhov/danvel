@@ -3,7 +3,7 @@ sidebar(ref="sidebar", :offset="sidebarOffset", @triggerSidebar="toggleSidebar")
 .page
   page-header(@triggerSidebar="toggleSidebar")
   main
-    router-vue
+    router-view
 </template>
 
 <script>
