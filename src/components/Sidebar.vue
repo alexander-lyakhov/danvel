@@ -111,6 +111,7 @@ export default {
 <style lang="scss" scoped>
 .sidebar {
   background: $black;
+  min-height: 100%;
   flex: 0 0 330px;
   transition: margin .2s;
   margin-left: v-bind(getOffset());
@@ -198,8 +199,6 @@ export default {
 
   .nav-menu {
     &__item {
-      $this: &;
-
       font-weight: bold;
       color: $white;
 
