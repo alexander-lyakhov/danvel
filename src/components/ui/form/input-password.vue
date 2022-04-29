@@ -43,10 +43,20 @@ base-input
 <script>
 
 import { ref, computed } from 'vue'
+
+/*
+ * Import compositions
+ */
+import useInput from './useInput.js'
+
+/*
+ * Import components
+ */
 import lbl from './label.vue'
 import baseInput from './base-input.vue'
 import iconEye from '@/assets/icons/icon-eye.svg'
 import iconEyeHide from '@/assets/icons/icon-eye-hide.svg'
+
 export default {
   name: 'InputPassword',
 
@@ -82,14 +92,11 @@ export default {
     /**
      * Variables
      */
-    const isInFocus = ref(false)
-    const hasError = ref(false)
     const isPasswordVisible = ref(false)
 
     /**
      * Computed
      */
-
     const type = computed(() =>
       isPasswordVisible.value ? 'text':'password'
     )
@@ -97,38 +104,24 @@ export default {
     /**
      * Methods
      */
-    const onInput = (e) => {
-      ctx.emit('update:modelValue', e.target.value)
-    }
-
-    const setFocus = () => {
-      isInFocus.value = true
-    }
-
-    const setBlur = () => {
-      isInFocus.value = false
-    }
-
     const toggleVisibile = (val) => {
-          // change value only if input field is not empty
+      // change value only if input field is not empty
       if (props.modelValue) {
         isPasswordVisible.value = val
       }
     }
 
     return {
+      // compositions
+      ...useInput(props, ctx),
+
       // variables
-      isInFocus,
       isPasswordVisible,
-      hasError,
 
       //computed
       type,
 
       // methods
-      onInput,
-      setFocus,
-      setBlur,
       toggleVisibile,
     }
   }

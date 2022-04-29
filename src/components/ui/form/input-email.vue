@@ -32,8 +32,18 @@ base-input
 <script>
 
 import { ref } from 'vue'
+
+/*
+ * Import compositions
+ */
+import useInput from './useInput.js'
+
+/*
+ * Import components
+ */
 import lbl from './label.vue'
 import baseInput from './base-input.vue'
+
 export default {
   name: 'InputEmail',
 
@@ -64,36 +74,8 @@ export default {
     }
   },
   setup(props, ctx) {
-    /**
-     * Variables
-     */
-    const isInFocus = ref(false)
-    const hasError = ref(false)
-
-    /**
-     * Methods
-     */
-    const onInput = (e) => {
-      ctx.emit('update:modelValue', e.target.value)
-    }
-
-    const setFocus = () => {
-      isInFocus.value = true
-    }
-
-    const setBlur = () => {
-      isInFocus.value = false
-    }
-
     return {
-      // variables
-      isInFocus,
-      hasError,
-
-      // methods
-      onInput,
-      setFocus,
-      setBlur
+      ...useInput(props, ctx)
     }
   }
 }
