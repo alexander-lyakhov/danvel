@@ -10,7 +10,7 @@ const routes = [
   {
     path: "/account",
     name: "account",
-    component: () => import("../views/Account"),
+    component: () => import("../views/Account/index.vue"),
     redirect: '/my-account',
     children: [
       {
